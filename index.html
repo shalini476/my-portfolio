@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shalini Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<style>
+    section {
+        margin: 0;
+        padding: 60px 0;
+        box-sizing: border-box;
+    }
+
+    #about,
+    #projects,
+    #contact,
+    #home {
+        padding: 50px 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #007bff;
+        padding: 10px 20px;
+        z-index: 1000;
+    }
+
+    .section-box {
+        background: #fff;
+        padding: 40px;
+        margin: 60px auto;
+        max-width: 900px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .section-box h2 {
+        font-family: "Poppins", sans-serif;
+        font-size: 28px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #333;
+    }
+
+    .section-box p,
+    .section-box ul {
+        font-family: "Poppins", sans-serif;
+        font-size: 18px;
+        color: #555;
+        line-height: 1.7;
+    }
+
+    body {
+        margin: 0;
+        background-color: #f8f9fa;
+    }
+
+    /* Initial hidden state */
+    .hidden {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1s ease, transform 1s ease;
+    }
+
+    /* Fade-in effect */
+    .fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Active navbar link */
+    .active-link {
+        border-bottom: 2px solid #fff;
+        font-weight: bold;
+        color: yellow !important;
+    }
+
+    /* Hover effect for cards (projects, experience) */
+    #projects div,
+    #experience div {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #projects div:hover,
+    #experience div:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .float {
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
+    }
+
+    #scrollTopBtn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 12px 15px;
+        border-radius: 50%;
+        font-size: 18px;
+        cursor: pointer;
+        display: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: background 0.3s;
+    }
+
+    #scrollTopBtn:hover {
+        background: #0056b3;
+    }
+
+    a:hover {
+        color: #007bff;
+        text-shadow: 0 0 8px #007bff, 0 0 15px #80d0ff;
+        transition: 0.3s;
+    }
+
+    #contact .container div:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+</style>
+
+<body>
+    <header>
+        <nav
+            style="background-color: #007bff; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+
+            <div class="nav-name" style="color: white; font-size: 1.5rem; font-weight: bold; margin-left: 40px;">
+                SHALINI P
+            </div>
+
+            <div class="nav" style="display: flex; gap: 15px;">
+                <a href="#about" style="color: white; text-decoration: none;">About</a>
+                <a href="#skills" style="color: white; text-decoration: none;">Skills</a>
+                <a href="#projects" style="color: white; text-decoration: none;">Projects</a>
+                <a href="#internship" style="color: white; text-decoration: none;">Internship</a>
+                <a href="#certifications" style="color: white; text-decoration: none;">Certifications</a>
+                <a href="#experience" style="color: white; text-decoration: none;">Experience</a>
+                <a href="#contact" style="color: white; text-decoration: none;">Contact</a>
+            </div>
+
+        </nav>
+    </header>
+    <section style="
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url('https://img.freepik.com/free-vector/abstract-soft-colorful-watercolor-texture-background-design-vector_1055-12127.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 100px;
+  text-align: center;
+">
+        <div
+            style="display: flex; align-items: center; justify-content: center; max-width: 900px; margin: auto; gap: 50px; flex-wrap: wrap;">
+
+            <!-- Left: Image -->
+            <div>
+                <img src="image.png" alt="Shalini P"
+                    style="width: 250px; height: 250px; border-radius: 50%; border: 6px solid #007bff; object-fit: cover;">
+            </div>
+
+            <!-- Right: Text -->
+            <div style="flex: 1;">
+                <h1 style="font-size: 3rem; font-weight: bold; margin-bottom: 15px; color: #000;"> Hi! I am SHALINI</h1>
+
+                <!-- Typing Effect Line -->
+                <h2 id="typing-text" style="font-size: 1.4rem; color: #222; margin-bottom: 15px;"></h2>
+
+                <!-- Rest of the paragraph -->
+                <p style="font-size: 1.2rem; color: #222; margin-bottom: 30px; line-height: 1.6;">
+                    Tech Enthusiast <br>
+                    I am a dedicated and motivated individual seeking to improve my skills and experiences
+                    in a challenging and dynamic environment.
+                </p>
+
+                <a href="SHALINI updated resume.docx" download
+                    style="background-color: #28a745; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-size: 1.1rem;">
+                    Download Resume
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="about" style="background-image: url('https://img.freepik.com/free-vector/blue-abstract-gradient-wave-vector-background_53876-111548.jpg?semt=ais_hybrid&w=740&q=80'); 
+           background-size: cover; 
+           background-position: center; 
+           padding: 80px 0; 
+           min-height: 100vh; 
+           display: flex; 
+           align-items: flex-start; 
+           justify-content: center;">
+
+        <div style="max-width: 900px; 
+                margin-top: 30px;
+                background-color: white; 
+                padding: 30px; 
+                border-radius: 10px; 
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+            <h2 style="color: #007bff; margin-bottom: 20px;">About me</h2>
+            <p style="font-size: 1.2rem; line-height: 1.8; color: #333;">
+                I am Shalini, a passionate learner with a keen interest in web development, programming, and creating
+                impactful projects.
+                I am a dedicated and motivated individual seeking to improve my skills and experiences in a challenging
+                and dynamic environment.</p>
+            <p style="font-size: 1.2rem; line-height: 1.8; color: #333;">I am currently pursuing my
+                <strong>B.Tech</strong> in the stream of <strong>Computer Science and
+                    Business Systems</strong> at <strong>M.Kumarasamy College of Engineering, Karur</strong>.
+            </p>
+        </div>
+    </section>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <section id="skills"
+        style="display: flex;flex-direction: column;align-items: center;justify-content: flex-start; /* Move content up */min-height: 100vh; background-image: url('https://img.freepik.com/free-vector/abstract-soft-colorful-watercolor-texture-background-design-vector_1055-12127.jpg');background-size: cover;background-position: center;background-repeat: no-repeat;padding: 80px 20px 50px; /* Extra top padding */text-align: center;scroll-margin-top: 80px; /* Prevents navbar overlap */">
+        <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 30px; color: #000;">My Skills</h1>
+        <div
+            style="display: flex; flex-wrap: wrap; justify-content: center; gap: 50px; max-width: 1000px; width: 100%;">
+
+            <div
+                style="flex: 1; min-width: 280px; background-color: rgba(255, 255, 255, 0.6); padding: 20px; border-radius: 10px;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 15px; color: #000;">Soft Skills</h2>
+                <ul
+                    style="list-style: none; padding: 0; font-size: 1.2rem; color: #222; line-height: 1.8; text-align: left;">
+                    <li><i class="fas fa-comments" style="color:#333; margin-right:10px;"></i>Communication</li>
+                    <li><i class="fas fa-users" style="color:#333; margin-right:10px;"></i>Teamwork</li>
+                    <li><i class="fas fa-lightbulb" style="color:#333; margin-right:10px;"></i>Problem Solving</li>
+                    <li><i class="fas fa-clock" style="color:#333; margin-right:10px;"></i>Time Management</li>
+                    <li><i class="fas fa-sync-alt" style="color:#333; margin-right:10px;"></i>Adaptability</li>
+                </ul>
+            </div>
+
+            <div
+                style="flex: 1; min-width: 280px; background-color: rgba(255, 255, 255, 0.6); padding: 20px; border-radius: 10px;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 15px; color: #000;">Technical Skills</h2>
+                <ul
+                    style="list-style: none; padding: 0; font-size: 1.2rem; color: #222; line-height: 1.8; text-align: left;">
+                    <li><i class="fab fa-html5" style="color:#e34c26; margin-right:10px;"></i>HTML, CSS</li>
+                    <li><i class="fab fa-java" style="color:#007396; margin-right:10px;"></i>Java</li>
+                    <li><i class="fab fa-python" style="color:#3776ab; margin-right:10px;"></i>Python (Basic)</li>
+                    <li><i class="fas fa-database" style="color:#4caf50; margin-right:10px;"></i>SQL</li>
+                    <li><i class="fab fa-js-square" style="color:#f7df1e; margin-right:10px;"></i>JavaScript</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" style="background-image: url('https://img.freepik.com/free-vector/blue-abstract-gradient-wave-vector-background_53876-111548.jpg?semt=ais_hybrid&w=740&q=80'); 
+           background-size: cover; 
+           background-position: center; 
+           padding: 80px 0; 
+           min-height: 100vh; 
+           display: flex; 
+           align-items: flex-start; 
+           justify-content: center;">
+        <div
+            style="background-color: white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-radius: 15px; width: 70%; max-width: 900px; padding: 30px; text-align: center;">
+            <h2 style="color: #007bff; margin-bottom: 20px;">Projects</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+
+                <div style="background-color: #f1f1f1; padding: 20px; border-radius: 10px;">
+                    <a href="https://github.com/shalini476/music-player-using-javascript">
+                        <h3>Music player</h3>
+                    </a>
+                    <p>An interactive music player built using HTML, CSS, and JavaScript with play/pause, track
+                        switching, and volume control features.</p>
+                </div>
+
+                <div style="background-color: #f1f1f1; padding: 20px; border-radius: 10px;">
+                    <a href="https://github.com/shalini476/Stop-watch-web-application">
+                        <h3>Stop watch web application</h3>
+                    </a>
+                    <p>A modern stopwatch web app with start/pause, lap tracking, reset functionality, and keyboard
+                        shortcuts.</p>
+                </div>
+
+                <div style="background-color: #f1f1f1; padding: 20px; border-radius: 10px;">
+                    <a href="https://github.com/shalini476/Image-gallery">
+                        <h3>Image gallery</h3>
+                    </a>
+                    <p>A responsive image gallery with interactive navigation built using HTML, CSS, and JavaScript.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="internship" style="
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background-image: url('https://img.freepik.com/free-vector/abstract-soft-colorful-watercolor-texture-background-design-vector_1055-12127.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 20px 50px;
+  text-align: center;
+  scroll-margin-top: 80px;
+">
+        <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 30px; color: #000;">
+            Internships
+        </h1>
+
+        <div
+            style="max-width: 1000px; width: 100%; background-color: rgba(255, 255, 255, 0.6); padding: 20px; border-radius: 10px; text-align: left;">
+            <ul style="list-style: none; padding: 0; font-size: 1.2rem; color: #222; line-height: 1.8;">
+                <li>
+                    <strong>Web Development & Java Full Stack Internship at ELYSIUM TECHNOLOGIES</strong> Hands-on
+                    experience in web application
+                    development and Java Full Stack technologies.
+                    <a href="https://www.linkedin.com/posts/shalini-p-001321290_internship-webdevelopment-javafullstack-activity-7348564446643974145-Ih3s?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEaGzMEBNeH8R8J5nLf2Q0svuW1eHz5OIsQ"
+                        target="_blank"> <i class="fas fa-eye"></i></a>
+
+                </li>
+                </br>
+                <li>
+                    <strong>Frontend Development Internship at CODEALPHA (Virtual)</strong> Learned modern frontend
+                    technologies and
+                    UI/UX principles.
+                    <a href="https://www.linkedin.com/posts/shalini-p-001321290_frontenddevelopment-internshipcompletion-activity-7325799484825686018-aAvv?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEaGzMEBNeH8R8J5nLf2Q0svuW1eHz5OIsQ"
+                        target="_blank"> <i class="fas fa-eye"></i></a>
+                </li>
+                </br>
+                <li>
+                    <strong>Web Development Internship at PRODIGY INFOTECH (Virtual)</strong> Gained skills in Python
+                    programming and
+                    project development.
+                    <a href="https://www.linkedin.com/posts/shalini-p-001321290_happy-to-announce-that-i-have-completed-my-activity-7307615444981403648-z5fB?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEaGzMEBNeH8R8J5nLf2Q0svuW1eHz5OIsQ"
+                        target="_blank"> <i class="fas fa-eye"></i></a>
+                </li>
+                </br>
+            </ul>
+        </div>
+    </section>
+
+    <section id="certifications" style="
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background-image: url('https://img.freepik.com/free-vector/abstract-soft-colorful-watercolor-texture-background-design-vector_1055-12127.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 20px 50px;
+  text-align: center;
+  scroll-margin-top: 80px;
+">
+        <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 30px; color: #000;">
+            Certifications
+        </h1>
+
+        <div
+            style="max-width: 1000px; width: 100%; background-color: rgba(255, 255, 255, 0.6); padding: 20px; border-radius: 10px; text-align: left;">
+            <ul style="list-style: none; padding: 0; font-size: 1.2rem; color: #222; line-height: 1.8;">
+                <li><strong>Diploma Course in C Programming (DCP) and Certificate Course in Python (CCP)</strong>
+                    Completed the basics and also C++ language <a
+                        href="https://www.linkedin.com/posts/shalini-p-001321290_python-cprogramming-certification-activity-7259197473338925056-OaKt?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEaGzMEBNeH8R8J5nLf2Q0svuW1eHz5OIsQ"
+                        target="_blank"> <i class="fas fa-eye"></i></a> </li>
+                <li><strong>NPTEL Certification</strong> The Joy of Computing Using Python and Introduction to Internet
+                    of Things <a
+                        href="https://www.linkedin.com/posts/shalini-p-001321290_internetofthings-nptel-learningjourney-activity-7329125876380381186-e3YI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEaGzMEBNeH8R8J5nLf2Q0svuW1eHz5OIsQ"
+                        target="_blank"> <i class="fas fa-eye"></i></a></li>
+                <li><strong>Infosys SpringBoard</strong> Introduction to Data Science<a
+                        href="https://www.linkedin.com/posts/shalini-p-001321290_learningneverstops-datascience-certification-activity-7265775434053672960-PKOd?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEaGzMEBNeH8R8J5nLf2Q0svuW1eHz5OIsQ"
+                        target="_blank"> <i class="fas fa-eye"></i></a></li>
+                <li><strong>Google Digital Garage</strong> Fundamentals of Digital Marketing<a
+                        href="https://skillshop.exceedlms.com/student/award/QSkMzLexGMwKp4D7tJRK4n8B" target="_blank">
+                        <i class="fas fa-eye"></i></a></li>
+                <li><strong>Guvi and HCL</strong> Introduction to Data Engineering and Big Data<a
+                        href="https://www.linkedin.com/posts/shalini-p-001321290_dataengineering-bigdata-learning-activity-7294975326521114627-IWD0?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEaGzMEBNeH8R8J5nLf2Q0svuW1eHz5OIsQ"
+                        target="_blank"> <i class="fas fa-eye"></i></a></li>
+                <li><strong>LinkedIn Learning</strong> Introduction to Artificial Intelligence<a
+                        href="https://www.linkedin.com/posts/shalini-p-001321290_artificialintelligence-ai-learning-activity-7306215072337444864-CCAY?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEaGzMEBNeH8R8J5nLf2Q0svuW1eHz5OIsQ"
+                        target="_blank"> <i class="fas fa-eye"></i></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="experience" style="background-image: url('https://img.freepik.com/free-vector/blue-abstract-gradient-wave-vector-background_53876-111548.jpg?semt=ais_hybrid&w=740&q=80'); 
+           background-size: cover; 
+           background-position: center; 
+           padding: 80px 0; 
+           min-height: 100vh; 
+           display: flex; 
+           align-items: flex-start; 
+           justify-content: center;">
+        <div
+            style="background-color: white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-radius: 15px; width: 70%; max-width: 900px; padding: 30px; text-align: center;">
+
+            <h2 style="color: #007bff; margin-bottom: 20px;">Experience</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+
+                <div style="background-color: #f1f1f1; padding: 30px; border-radius: 10px; text-align: center;">
+                    <img src="tih logo.jpg" alt="TIH Logo" class="float"
+                        style="width: 150px; display: block; margin: 0 auto 20px auto;">
+                    <h3 style="margin-bottom: 10px; color: #000;">TIH Member @ MKCE</h3>
+                    <p style="color: #333; line-height: 1.6;">
+                        Member of <b>Technology Innovation Hub (TIH)</b>, gaining hands-on experience in innovation,
+                        technology research, and collaborative projects. Developed skills in problem-solving, teamwork,
+                        and applying technical knowledge to real-world challenges.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <section id="contact"
+        style="padding: 80px 20px; background: linear-gradient(135deg, #e0f7fa, #ffffff); font-family: 'Poppins', sans-serif;">
+        <div class="container" style="max-width: 900px; margin: auto; text-align: center;">
+            <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 40px; color: #222;">Contact Me</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+
+                <!-- LinkedIn -->
+                <div
+                    style="background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                    <ion-icon name="logo-linkedin" style="font-size: 2rem; color: #0A66C2;"></ion-icon>
+                    <p style="margin-top: 10px;">
+                        <a href="https://www.linkedin.com/in/shalini-p-001321290" target="_blank"
+                            style="text-decoration: none; font-size: 1.1rem; color: #0A66C2; font-weight: 500;">LinkedIn
+                            Profile</a>
+                    </p>
+                </div>
+
+                <!-- GitHub -->
+                <div
+                    style="background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                    <ion-icon name="logo-github" style="font-size: 2rem; color: #333;"></ion-icon>
+                    <p style="margin-top: 10px;">
+                        <a href="https://github.com/shalini476" target="_blank"
+                            style="text-decoration: none; font-size: 1.1rem; color: #333; font-weight: 500;">GitHub
+                            Profile</a>
+                    </p>
+                </div>
+
+                <!-- Email -->
+                <div
+                    style="background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                    <ion-icon name="mail-outline" style="font-size: 2rem; color: #D44638;"></ion-icon>
+                    <p style="margin-top: 10px; font-size: 1.1rem; color: #444;">shalinicsbs@gmail.com</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer style="background-color: #007bff; color: white; text-align: center; padding: 20px 10px; margin-top: 40px;">
+        <p style="margin: 0; font-size: 14px;">
+            © 2025 Shalini. All Rights Reserved.
+        </p>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        const sections = document.querySelectorAll("section, .section-box");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("fade-in");
+                }
+            });
+        }, { threshold: 0.2 });
+
+        sections.forEach(sec => {
+            sec.classList.add("hidden");
+            observer.observe(sec);
+        });
+        const navLinks = document.querySelectorAll("nav a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach(sec => {
+                const sectionTop = sec.offsetTop - 120;
+                if (scrollY >= sectionTop) {
+                    current = sec.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove("active-link");
+                if (link.getAttribute("href").includes(current)) {
+                    link.classList.add("active-link");
+                }
+            });
+        });
+
+        const text = "Aspiring Full Stack Developer | Creative Problem Solver";
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typing-text").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 80);
+            }
+        }
+        window.onload = typeWriter;
+
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        window.onscroll = () => {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+        scrollTopBtn.onclick = () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add("fade-in");
+                }, index * 200);
+            }
+        });
+
+    </script>
+
+</body>
+<button id="scrollTopBtn">↑</button>
+
+</html>
