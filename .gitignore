@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+.venv/
+venv/
+__pycache__/
+.idea/
+.vscode/
+*.log
+*.tmp
+.DS_Store
